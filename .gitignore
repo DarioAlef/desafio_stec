@@ -1,3 +1,10 @@
+#dot env
+env
+.env
+.environment
+.env/
+env/
+
 # Logs
 logs
 *.log
