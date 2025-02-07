@@ -1,67 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Definindo a codificação de caracteres da página para UTF-8, que suporta caracteres especiais da língua portuguesa. -->
     <meta charset="UTF-8">
+
+    <!-- Definindo as configurações para que o site seja responsivo, ou seja, se ajuste em diferentes dispositivos (como celulares e tablets). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Definindo o título da página, que aparece na aba do navegador. -->
     <title>Chatbot Saturn</title>
+
     <style>
+        /* CSS para estilização da página */
+        
         body {
+            /* A fonte será a Arial ou, caso não tenha, uma fonte genérica sans-serif */
             font-family: Arial, sans-serif;
+            /* Centraliza o conteúdo da página */
             text-align: center;
+            /* Adiciona uma margem de 50px ao redor de todo o conteúdo da página */
             margin: 50px;
         }
+
+        /* Estilo para a caixa de chat onde as mensagens serão exibidas */
         #chat-box {
+            /* Definindo a largura da caixa de chat para 50% da largura da tela */
             width: 50%;
+            /* Centralizando a caixa de chat horizontalmente */
             margin: auto;
+            /* Adicionando uma borda sutil ao redor da caixa */
             border: 1px solid #ccc;
+            /* Adicionando 10px de padding (espaçamento interno) */
             padding: 10px;
+            /* Definindo a altura da caixa de chat para 300px */
             height: 300px;
+            /* Tornando o conteúdo rolável verticalmente (para poder ver mensagens antigas) */
             overflow-y: auto;
         }
+
+        /* Estilo para as mensagens enviadas pelo usuário */
         .user-message {
+            /* Alinhando o texto à direita, já que o usuário geralmente envia mensagens à direita */
             text-align: right;
+            /* Cor azul para as mensagens do usuário */
             color: blue;
         }
+
+        /* Estilo para as mensagens enviadas pelo bot */
         .bot-message {
+            /* Alinhando o texto à esquerda, já que o bot geralmente responde à esquerda */
             text-align: left;
+            /* Cor verde para as mensagens do bot */
             color: green;
         }
+
+        /* Estilo para o campo de entrada de texto onde o usuário digita a mensagem */
         #user-input {
+            /* Definindo a largura do campo de entrada para 80% da largura da tela */
             width: 80%;
+            /* Adicionando 10px de padding para melhorar a usabilidade */
             padding: 10px;
+            /* Adicionando uma margem de 10px no topo do campo de entrada */
             margin-top: 10px;
         }
     </style>
 </head>
 <body>
+    <!-- Título principal da página -->
     <h1>Chatbot Saturn</h1>
+
+    <!-- Caixa de chat onde as mensagens serão exibidas -->
     <div id="chat-box"></div>
+
+    <!-- Campo de entrada de texto para o usuário digitar suas mensagens -->
     <input type="text" id="user-input" placeholder="Digite sua mensagem..." />
+
+    <!-- Botão para enviar a mensagem -->
     <button onclick="sendMessage()">Enviar</button>
 
     <script>
+        /* Função para enviar a mensagem do usuário e receber a resposta do bot */
         async function sendMessage() {
+            // Captura o valor digitado pelo usuário no campo de entrada de texto
             const userInput = document.getElementById("user-input").value;
+
+            // Verifica se o campo de entrada está vazio. Se estiver, a função é interrompida
             if (!userInput) return;
 
+            // Captura a caixa de chat onde as mensagens serão exibidas
             const chatBox = document.getElementById("chat-box");
+
+            // Adiciona a mensagem do usuário na caixa de chat com a formatação de texto à direita (user-message)
             chatBox.innerHTML += `<p class="user-message"><strong>Você:</strong> ${userInput}</p>`;
 
+            // Limpa o campo de entrada após enviar a mensagem
             document.getElementById("user-input").value = "";
 
             try {
+                // Realiza uma requisição HTTP para o servidor (supondo que o bot esteja rodando localmente em http://localhost:3000)
                 const response = await fetch("http://localhost:3000/chat", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ prompt: userInput }),
+                    method: "POST", // Usando o método POST para enviar dados
+                    headers: { "Content-Type": "application/json" }, // Indicando que os dados são no formato JSON
+                    body: JSON.stringify({ prompt: userInput }), // Enviando a entrada do usuário como JSON
                 });
 
+                // Converte a resposta recebida do servidor para JSON
                 const data = await response.json();
+
+                // Adiciona a resposta do bot na caixa de chat com formatação de texto à esquerda (bot-message)
                 chatBox.innerHTML += `<p class="bot-message"><strong>Bot:</strong> ${data.response}</p>`;
             } catch (error) {
+                // Caso ocorra um erro na requisição, exibe uma mensagem de erro na caixa de chat
                 chatBox.innerHTML += `<p class="bot-message" style="color:red;"><strong>Erro:</strong> Não foi possível obter resposta.</p>`;
             }
 
+            // Rolando a caixa de chat para mostrar a última mensagem
             chatBox.scrollTop = chatBox.scrollHeight;
         }
     </script>
