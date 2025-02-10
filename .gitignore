@@ -1,9 +1,9 @@
-#dot env
-env
-.env
-.environment
-.env/
-env/
+# #dot env
+# env
+# .env
+# .environment
+# .env/
+# env/
 
 # Logs
 logs
