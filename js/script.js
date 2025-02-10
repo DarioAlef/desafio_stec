@@ -28,6 +28,10 @@ async function sendMessage() {
 
         // Adiciona a resposta do bot na caixa de chat com formatação de texto à esquerda (bot-message)
         chatBox.innerHTML += `<p class="bot-message"><strong></strong> ${data.response}</p>`;
+
+        // Reproduz o som de notificação
+        const notificationSound = new Audio('assets/sounds/notification.mp3');
+        notificationSound.play();
     } catch (error) {
         // Caso ocorra um erro na requisição, exibe uma mensagem de erro na caixa de chat
         chatBox.innerHTML += `<p class="bot-message" style="color:red;"><strong>Erro:</strong> Não foi possível obter resposta.</p>`;
@@ -36,3 +40,11 @@ async function sendMessage() {
     // Rolando a caixa de chat para mostrar a última mensagem
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+// Adicionando um evento de escuta para a tecla Enter
+document.getElementById("user-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        sendMessage(); // Chama a função sendMessage ao pressionar Enter
+        event.preventDefault(); // Evita o comportamento padrão de nova linha
+    }
+});

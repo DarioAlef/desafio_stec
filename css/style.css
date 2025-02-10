@@ -1,12 +1,22 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
     /* A fonte será a Arial ou, caso não tenha, uma fonte genérica sans-serif */
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     /* Centraliza o conteúdo da página */
     text-align: center;
     /* Adiciona uma margem de 50px ao redor de todo o conteúdo da página */
     margin: 50px;
     /* Adiciona um fundo gradiente */
-    background: linear-gradient(to right, #ffffff, #ffffff);
+    background: linear-gradient(135deg, #f0f4f8, #e0e7ef);
+    animation: backgroundAnimation 10s ease infinite; /* Animação de fundo */
+}
+
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #f0f4f8, #e0e7ef); }
+    50% { background: linear-gradient(135deg, #e0e7ef, #f0f4f8); }
+    100% { background: linear-gradient(135deg, #f0f4f8, #e0e7ef); }
 }
 
 /* Estilo para a caixa de chat onde as mensagens serão exibidas */
@@ -16,17 +26,23 @@ body {
     /* Centralizando a caixa de chat horizontalmente */
     margin: auto;
     /* Adicionando 10px de padding (espaçamento interno) */
-    padding: 10px;
+    padding: 20px;
     /* Definindo a altura da caixa de chat para 300px */
     height: 450px;
     /* Tornando o conteúdo rolável verticalmente (para poder ver mensagens antigas) */
     overflow-y: auto;
     /* Adicionando bordas arredondadas */
-    border-radius: 10px;
+    border-radius: 15px;
     /* Adicionando uma sombra */
-    box-shadow: 0 4px 8px rgba(68, 68, 68, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     /* Cor de fundo branco */
-    background-color: rgb(65, 64, 64);
+    background-color: #ffffff;
+    transition: box-shadow 0.3s; /* Transição suave para sombra */
+}
+
+/* Efeito de hover na caixa de chat */
+#chat-box:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
 }
 
 /* Estilo para as mensagens enviadas pelo usuário */
@@ -34,23 +50,38 @@ body {
     /* Alinhando o texto à direita */
     text-align: right;
     /* Cor do texto */
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     /* Fundo do balão de diálogo */
-    background-color: #666666;
+    background-color: #888888;
     /* Bordas arredondadas */
     border-radius: 15px;
     /* Padding interno para o balão de diálogo */
-    padding: 10px;
+    padding: 12px;
     /* Margem para separar as mensagens */
     margin: 10px 0;
     /* Exibir como inline-block para ajustar o tamanho ao conteúdo */
     display: inline-block;
     /* Cor da borda */
-    border: 1px solid #a8a8a8;
-    /* Flutuar à direita */
-    float: right;
-    /* Limpar flutuação à esquerda */
-    clear: left;
+    border: none;
+    /* Sombra sutil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Largura do balão de mensagem */
+    max-width: 70%; /* Limita a largura do balão */
+    float: right; /* Alinha à direita */
+    clear: both; /* Limpa flutuação */
+    opacity: 0; /* Começa invisível */
+    animation: slideInRight 0.5s forwards; /* Animação de entrada */
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Estilo para as mensagens enviadas pelo bot */
@@ -58,24 +89,38 @@ body {
     /* Alinhando o texto à esquerda */
     text-align: left;
     /* Cor do texto */
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     /* Fundo do balão de diálogo */
-    background-color: #0b67ca;
+    background-color: #10204b;
     /* Bordas arredondadas */
     border-radius: 15px;
     /* Padding interno para o balão de diálogo */
-    padding: 10px;
+    padding: 12px;
     /* Margem para separar as mensagens */
     margin: 10px 0;
     /* Exibir como inline-block para ajustar o tamanho ao conteúdo */
     display: inline-block;
     /* Cor da borda */
-    border: 1px solid #007bff;
-    /* Flutuar à esquerda */
-    float: left;
-    /* Limpar flutuação à direita */
-    clear: right;
-    width: 90%;
+    border: none;
+    /* Sombra sutil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Largura do balão de mensagem */
+    max-width: 70%; /* Limita a largura do balão */
+    float: left; /* Alinha à esquerda */
+    clear: both; /* Limpa flutuação */
+    opacity: 0; /* Começa invisível */
+    animation: slideInLeft 0.5s forwards; /* Animação de entrada */
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Estilo para o campo de entrada de texto onde o usuário digita a mensagem */
@@ -83,13 +128,19 @@ body {
     /* Definindo a largura do campo de entrada para 80% da largura da tela */
     width: 50%;
     /* Adicionando 10px de padding para melhorar a usabilidade */
-    padding: 10px;
+    padding: 12px;
     /* Adicionando uma margem de 10px no topo do campo de entrada */
     margin-top: 10px;
     /* Adicionando bordas arredondadas */
     border-radius: 5px;
     /* Adicionando uma borda */
     border: 1px solid #ccc;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transição suave */
+}
+
+#user-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra ao focar */
 }
 
 /* Estilo para o botão */
@@ -113,8 +164,18 @@ body {
 
 /* Estilo para o botão no hover */
 .enviar {
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
     color: #797777;
-    border-radius: 100%;
+    border-radius: 50%;
     padding: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Transição suave */
+}
+
+/* Efeito ao passar o mouse */
+.enviar:hover {
+    background: linear-gradient(135deg, #e0e0e0, #ffffff);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
 }
