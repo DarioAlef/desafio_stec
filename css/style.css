@@ -1,0 +1,120 @@
+body {
+    /* A fonte será a Arial ou, caso não tenha, uma fonte genérica sans-serif */
+    font-family: Arial, sans-serif;
+    /* Centraliza o conteúdo da página */
+    text-align: center;
+    /* Adiciona uma margem de 50px ao redor de todo o conteúdo da página */
+    margin: 50px;
+    /* Adiciona um fundo gradiente */
+    background: linear-gradient(to right, #ffffff, #ffffff);
+}
+
+/* Estilo para a caixa de chat onde as mensagens serão exibidas */
+#chat-box {
+    /* Definindo a largura da caixa de chat para 50% da largura da tela */
+    width: 50%;
+    /* Centralizando a caixa de chat horizontalmente */
+    margin: auto;
+    /* Adicionando 10px de padding (espaçamento interno) */
+    padding: 10px;
+    /* Definindo a altura da caixa de chat para 300px */
+    height: 450px;
+    /* Tornando o conteúdo rolável verticalmente (para poder ver mensagens antigas) */
+    overflow-y: auto;
+    /* Adicionando bordas arredondadas */
+    border-radius: 10px;
+    /* Adicionando uma sombra */
+    box-shadow: 0 4px 8px rgba(68, 68, 68, 0.1);
+    /* Cor de fundo branco */
+    background-color: rgb(65, 64, 64);
+}
+
+/* Estilo para as mensagens enviadas pelo usuário */
+.user-message {
+    /* Alinhando o texto à direita */
+    text-align: right;
+    /* Cor do texto */
+    color: rgb(255, 255, 255);
+    /* Fundo do balão de diálogo */
+    background-color: #666666;
+    /* Bordas arredondadas */
+    border-radius: 15px;
+    /* Padding interno para o balão de diálogo */
+    padding: 10px;
+    /* Margem para separar as mensagens */
+    margin: 10px 0;
+    /* Exibir como inline-block para ajustar o tamanho ao conteúdo */
+    display: inline-block;
+    /* Cor da borda */
+    border: 1px solid #a8a8a8;
+    /* Flutuar à direita */
+    float: right;
+    /* Limpar flutuação à esquerda */
+    clear: left;
+}
+
+/* Estilo para as mensagens enviadas pelo bot */
+.bot-message {
+    /* Alinhando o texto à esquerda */
+    text-align: left;
+    /* Cor do texto */
+    color: rgb(255, 255, 255);
+    /* Fundo do balão de diálogo */
+    background-color: #0b67ca;
+    /* Bordas arredondadas */
+    border-radius: 15px;
+    /* Padding interno para o balão de diálogo */
+    padding: 10px;
+    /* Margem para separar as mensagens */
+    margin: 10px 0;
+    /* Exibir como inline-block para ajustar o tamanho ao conteúdo */
+    display: inline-block;
+    /* Cor da borda */
+    border: 1px solid #007bff;
+    /* Flutuar à esquerda */
+    float: left;
+    /* Limpar flutuação à direita */
+    clear: right;
+    width: 90%;
+}
+
+/* Estilo para o campo de entrada de texto onde o usuário digita a mensagem */
+#user-input {
+    /* Definindo a largura do campo de entrada para 80% da largura da tela */
+    width: 50%;
+    /* Adicionando 10px de padding para melhorar a usabilidade */
+    padding: 10px;
+    /* Adicionando uma margem de 10px no topo do campo de entrada */
+    margin-top: 10px;
+    /* Adicionando bordas arredondadas */
+    border-radius: 5px;
+    /* Adicionando uma borda */
+    border: 1px solid #ccc;
+}
+
+/* Estilo para o botão */
+.button {
+    width: 100%;
+    /* Adicionando padding */
+    padding: 10px;
+    /* Adicionando bordas arredondadas */
+    border-radius: 5px;
+    /* Adicionando uma borda */
+    border: 1px solid #ccc;
+    /* Adicionando uma cor de fundo */
+    background-color: #797777;
+    /* Adicionando uma cor de texto */
+    color: white;
+    /* Adicionando um cursor pointer */
+    cursor: pointer;
+    /* Adicionando uma transição para o hover */
+    transition: background-color 0.3s;
+}
+
+/* Estilo para o botão no hover */
+.enviar {
+    background-color: #ffffff;
+    color: #797777;
+    border-radius: 100%;
+    padding: 10px;
+}

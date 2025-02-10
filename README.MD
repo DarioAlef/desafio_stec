@@ -3,8 +3,9 @@ To initialize the projet, in the termianal:
 1. npm init -y
 2. npm install express cors dotenv axios nodemon
 3. (in case don't have the path, create in "scripts", in package.json)  "dev": "nodemon server.js",
-4. npm run dev
-5. open index.html with the extensions live on server 
+4. create .env file in the source of the project 
+5. npm run dev
+6. open index.html with the extensions live on server 
 
 
 # Architecture: 
