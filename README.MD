@@ -11,17 +11,20 @@ desenvolvendo o projeto não precisará estar em constante comunição com o tim
 pois o Stec Coder será responsável manter coeso e atualizado todo o projeto e particularidades do desenvolvimento
 
 
-# Inicializando o projeot -> no terminal:
+
+# Inicializando o projeot -> insira no terminal:
 1. npm init -y
 2. npm install express cors dotenv axios nodemon
-3. (in case don't have the path, create in "scripts", in package.json)  "dev": "nodemon server.js",
+3. caso não tenha o path, insira em "scripts", no package.json ->  "dev": "nodemon server.js",
 4. create .env file in the source of the project 
 5. npm run dev
 6. open index.html with the extensions live on server 
 
 
+
 # .env 
 o arquivo está visível no projeto para fins de facilitar o funcionamento do projeto em diferentes máquinas
+
 
 
 # API com SATURN STUDIO
@@ -31,21 +34,22 @@ utilizei o express, cors e axios para poder criar um servidor node com requisiç
     e a resposta json é tratada pelo express
 
 
+
 # Architecture: 
 desafio_stec/
 │
-├── index.html               # Página principal
+├── index.html                # Página principal
 ├── assets/                  
-│   ├── images/              # Imagens usadas na landing page
-│   │   └── logo.png         # logo do projeto
+│   ├── images/               # Imagens usadas na landing page
+│   │   └── logo.png          # logo do projeto
 │   │   
 │   ├── sounds/           
-│   │   └── notification.mp3 # som futurista para quando o chat bot responde
-│   └── favicon.ico          # Favicon da página
+│   │   └── notification.mp3  # som futurista para quando o chat bot responde
+│   └── favicon.ico           # Favicon da página
 │
 ├── css/                    
-│   ├── style.css            # style da página
+│   ├── style.css             # style da página
 │
 ├── js/                  
-│   ├── script.js            # script para o funcionamento do chat
-└─ server.js                 # servidor node para o backend da api
+│   ├── script.js             # script para o funcionamento do chat
+└─ server.js                  # servidor node para o backend da api
