@@ -1,16 +1,11 @@
-/* Importando uma fonte moderna do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-    /* A fonte será a Arial ou, caso não tenha, uma fonte genérica sans-serif */
     font-family: 'Roboto', sans-serif;
-    /* Centraliza o conteúdo da página */
     text-align: center;
-    /* Adiciona uma margem de 50px ao redor de todo o conteúdo da página */
     margin: 50px;
-    /* Adiciona um fundo gradiente */
     background: linear-gradient(135deg, #f0f4f8, #e0e7ef);
-    animation: backgroundAnimation 10s ease infinite; /* Animação de fundo */
+    animation: backgroundAnimation 10s ease infinite;
 }
 
 @keyframes backgroundAnimation {
@@ -19,58 +14,37 @@ body {
     100% { background: linear-gradient(135deg, #f0f4f8, #e0e7ef); }
 }
 
-/* Estilo para a caixa de chat onde as mensagens serão exibidas */
 #chat-box {
-    /* Definindo a largura da caixa de chat para 50% da largura da tela */
     width: 50%;
-    /* Centralizando a caixa de chat horizontalmente */
     margin: auto;
-    /* Adicionando 10px de padding (espaçamento interno) */
     padding: 20px;
-    /* Definindo a altura da caixa de chat para 300px */
     height: 450px;
-    /* Tornando o conteúdo rolável verticalmente (para poder ver mensagens antigas) */
     overflow-y: auto;
-    /* Adicionando bordas arredondadas */
     border-radius: 15px;
-    /* Adicionando uma sombra */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Cor de fundo branco */
     background-color: #ffffff;
-    transition: box-shadow 0.3s; /* Transição suave para sombra */
+    transition: box-shadow 0.3s;
 }
 
-/* Efeito de hover na caixa de chat */
 #chat-box:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilo para as mensagens enviadas pelo usuário */
 .user-message {
-    /* Alinhando o texto à direita */
     text-align: right;
-    /* Cor do texto */
     color: #ffffff;
-    /* Fundo do balão de diálogo */
     background-color: #888888;
-    /* Bordas arredondadas */
     border-radius: 15px;
-    /* Padding interno para o balão de diálogo */
     padding: 12px;
-    /* Margem para separar as mensagens */
     margin: 10px 0;
-    /* Exibir como inline-block para ajustar o tamanho ao conteúdo */
     display: inline-block;
-    /* Cor da borda */
     border: none;
-    /* Sombra sutil */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Largura do balão de mensagem */
-    max-width: 70%; /* Limita a largura do balão */
-    float: right; /* Alinha à direita */
-    clear: both; /* Limpa flutuação */
-    opacity: 0; /* Começa invisível */
-    animation: slideInRight 0.5s forwards; /* Animação de entrada */
+    max-width: 70%;
+    float: right;
+    clear: both;
+    opacity: 0;
+    animation: slideInRight 0.5s forwards;
 }
 
 @keyframes slideInRight {
@@ -84,32 +58,21 @@ body {
     }
 }
 
-/* Estilo para as mensagens enviadas pelo bot */
 .bot-message {
-    /* Alinhando o texto à esquerda */
     text-align: left;
-    /* Cor do texto */
     color: #ffffff;
-    /* Fundo do balão de diálogo */
     background-color: #10204b;
-    /* Bordas arredondadas */
     border-radius: 15px;
-    /* Padding interno para o balão de diálogo */
     padding: 12px;
-    /* Margem para separar as mensagens */
     margin: 10px 0;
-    /* Exibir como inline-block para ajustar o tamanho ao conteúdo */
     display: inline-block;
-    /* Cor da borda */
     border: none;
-    /* Sombra sutil */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Largura do balão de mensagem */
-    max-width: 70%; /* Limita a largura do balão */
-    float: left; /* Alinha à esquerda */
-    clear: both; /* Limpa flutuação */
-    opacity: 0; /* Começa invisível */
-    animation: slideInLeft 0.5s forwards; /* Animação de entrada */
+    max-width: 70%;
+    float: left;
+    clear: both;
+    opacity: 0;
+    animation: slideInLeft 0.5s forwards;
 }
 
 @keyframes slideInLeft {
@@ -123,46 +86,20 @@ body {
     }
 }
 
-/* Estilo para o campo de entrada de texto onde o usuário digita a mensagem */
 #user-input {
-    /* Definindo a largura do campo de entrada para 80% da largura da tela */
     width: 50%;
-    /* Adicionando 10px de padding para melhorar a usabilidade */
     padding: 12px;
-    /* Adicionando uma margem de 10px no topo do campo de entrada */
     margin-top: 10px;
-    /* Adicionando bordas arredondadas */
     border-radius: 5px;
-    /* Adicionando uma borda */
     border: 1px solid #ccc;
-    transition: border-color 0.3s, box-shadow 0.3s; /* Transição suave */
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #user-input:focus {
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra ao focar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilo para o botão */
-.button {
-    width: 100%;
-    /* Adicionando padding */
-    padding: 10px;
-    /* Adicionando bordas arredondadas */
-    border-radius: 5px;
-    /* Adicionando uma borda */
-    border: 1px solid #ccc;
-    /* Adicionando uma cor de fundo */
-    background-color: #797777;
-    /* Adicionando uma cor de texto */
-    color: white;
-    /* Adicionando um cursor pointer */
-    cursor: pointer;
-    /* Adicionando uma transição para o hover */
-    transition: background-color 0.3s;
-}
-
-/* Estilo para o botão no hover */
 .enviar {
     background: linear-gradient(135deg, #ffffff, #e0e0e0);
     color: #797777;
@@ -170,12 +107,11 @@ body {
     padding: 10px;
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Transição suave */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
-/* Efeito ao passar o mouse */
 .enviar:hover {
     background: linear-gradient(135deg, #e0e0e0, #ffffff);
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
