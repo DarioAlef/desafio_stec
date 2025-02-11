@@ -3,11 +3,9 @@ async function sendMessage() {
     const userInput = document.getElementById("user-input").value;
     if (!userInput) return
     const chatBox = document.getElementById("chat-box")
-    //pro texto ficar bonitinho
     chatBox.innerHTML += `<p class="user-message"><strong></strong> ${userInput}</p>`
     document.getElementById("user-input").value = ""
 
-    //requisição pro back
     try {
         const response = await fetch("http://localhost:3000/chat", {
             method: "POST",
