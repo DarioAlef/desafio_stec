@@ -1,4 +1,4 @@
-//mensagem do usuário
+//mensagem do usuário que retorna a resposta do chat bot
 async function sendMessage() {
     const userInput = document.getElementById("user-input").value;
     if (!userInput) return
