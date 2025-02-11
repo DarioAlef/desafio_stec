@@ -1,4 +1,3 @@
-//importações
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -7,9 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const URL = `http://localhost:${PORT}`; // URL base
 
-//importar outras requisições
 app.use(cors());
-//express reconhecer json
 app.use(express.json());
 
 //rota da requisição
@@ -24,7 +21,7 @@ app.post("/chat", async (req, res) => {
     const response = await axios.post(
       "https://ai.stec.cx/single",
       {
-        prompt: prompt,           //corpo da requisição
+        prompt: prompt,           //envio do client_id e do project_id junto com o prompt
         service: "merlin-v1",
         clientid: process.env.CLIENT_ID,
         projectid: process.env.PROJECT_ID,
@@ -36,7 +33,6 @@ app.post("/chat", async (req, res) => {
       }
     );
 
-    //retornando a resposta do bot
     res.json({ response: response.data.text })
   } catch (error) {
     console.error("Erro ao se comunicar com a API do Saturn:", error)
@@ -44,5 +40,4 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-//escutando a porta 3000
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${URL}`)) 
