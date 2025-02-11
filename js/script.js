@@ -17,7 +17,6 @@ async function sendMessage() {
 
         chatBox.innerHTML += `<p class="bot-message"><strong></strong> ${data.response}</p>`
 
-        //som de notificação tipo de celular
         const notificationSound = new Audio('assets/sounds/notification.mp3')
         notificationSound.play();
     } catch (error) {
@@ -27,7 +26,6 @@ async function sendMessage() {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-//usar tecla enter
 document.getElementById("user-input").addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         sendMessage();
